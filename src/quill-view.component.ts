@@ -60,7 +60,7 @@ export class QuillViewComponent implements AfterViewInit, OnChanges {
     const format = getFormat(this.format, this.config.format)
     let content = value
     if (format === 'html' || format === 'text') {
-      content = quillEditor.clipboard.convert(value)
+      content = quillEditor.clipboard.convert({ [format]: value })
     } else if (format === 'json') {
       try {
         content = JSON.parse(value)

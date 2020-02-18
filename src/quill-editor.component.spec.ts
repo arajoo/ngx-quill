@@ -1048,7 +1048,7 @@ describe('QuillEditor - base config', () => {
     }] as any, 'api')
     fixture.detectChanges()
 
-    expect(JSON.stringify(fixture.componentInstance.title)).toEqual(JSON.stringify({ ops: [{ attributes: { bold: true }, insert: `content`}, {'insert':'\n'}] }))
+    expect(JSON.stringify(fixture.componentInstance.title)).toEqual(JSON.stringify({ ops: [{ attributes: { italic: true, bold: true }, insert: `content`}, {'insert':'\n'}] }))
     expect(editor.root.dataset.placeholder).toEqual('placeholder')
   }))
 })

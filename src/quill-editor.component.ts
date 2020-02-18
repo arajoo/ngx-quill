@@ -185,7 +185,7 @@ export class QuillEditorComponent implements AfterViewInit, ControlValueAccessor
       if (this.sanitize) {
         value = this.domSanitizer.sanitize(SecurityContext.HTML, value)
       }
-      return quillEditor.clipboard.convert(value)
+      return quillEditor.clipboard.convert({ html: value })
     } else if (format === 'json') {
       try {
         return JSON.parse(value)
@@ -303,7 +303,7 @@ export class QuillEditorComponent implements AfterViewInit, ControlValueAccessor
         if (this.sanitize) {
           this.content = this.domSanitizer.sanitize(SecurityContext.HTML, this.content)
         }
-        const contents = this.quillEditor.clipboard.convert(this.content)
+        const contents = this.quillEditor.clipboard.convert({ html: this.content })
         this.quillEditor.setContents(contents, 'silent')
       }
 
